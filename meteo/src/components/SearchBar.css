@@ -1,0 +1,9 @@
+
+.custom-form-label {
+    &:focus {
+        box-shadow: none;
+        /* Rimuove il bordo blu quando il label è attivo */
+        border-color: #ced4da;
+        /* Puoi impostare il colore del bordo in base al tuo design */
+    }
+}
