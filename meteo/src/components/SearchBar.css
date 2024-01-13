@@ -7,3 +7,7 @@
         /* Puoi impostare il colore del bordo in base al tuo design */
     }
 }
+
+.input-group-text {
+    cursor: pointer;
+}

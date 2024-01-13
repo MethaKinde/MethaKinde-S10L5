@@ -1,7 +1,28 @@
 import { Row } from "react-bootstrap";
 import SingleHourly from "./SingleHourly";
 
-const HourlyForecast = () => {
+const HourlyForecast = ({ weatherData }) => {
+    if (!weatherData) {
+        return null;
+    }
+
+
+    const lat = weatherData.coord.lat
+    const lon = weatherData.coord.lon
+
+    const ApiKey = '809649649ed203d672f4842ba663a1c9'
+
+    const ApiUrl = `https://pro.openweathermap.org/data/2.5/forecast/hourly?lat=${lat}&lon=${lon}&appid=${ApiKey}`
+
+    try {
+        const response = fetch(ApiUrl)
+        const data = response.json()
+        console.log(data)
+  
+      } catch (error) {
+        console.error('Errore nella chiamata API:', error)
+  
+      }
 
     return (
         <div className="text-white">

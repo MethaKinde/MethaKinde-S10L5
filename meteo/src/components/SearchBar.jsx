@@ -7,11 +7,15 @@ import { Row, Col } from "react-bootstrap";
 
 const SearchBar = ({ onSearchChange }) => {
 
-    const [search, setSearch] = useState(null)
+    const [search, setSearch] = useState('')
 
-    const handleOnChange = (searchData) => {
-        setSearch(searchData)
-        onSearchChange(searchData)
+    const handleOnChange = (event) => {
+        setSearch(event.target.value);
+    }
+
+    const handleSearchClick = () => {
+        // Passa il valore dell'input solo quando viene cliccato l'icona Search
+        onSearchChange(search);
     }
 
     return (
@@ -23,10 +27,12 @@ const SearchBar = ({ onSearchChange }) => {
                         aria-label="SearchBar"
                         aria-describedby="basic-addon1"
                         size="lg"
-                        className="custom-form-label"
-                        // onChange={handleOnChange}
+                        className="custom-form-label cityInput"
+                        value={search}
+                        onChange={handleOnChange}
+                        
                     />
-                    <InputGroup.Text id="basic-addon1">
+                    <InputGroup.Text id="basic-addon1" onClick={handleSearchClick}>
                         <Search />
                     </InputGroup.Text>
                 </InputGroup>
